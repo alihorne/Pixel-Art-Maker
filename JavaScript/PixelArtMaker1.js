@@ -28,8 +28,6 @@ function makeGrid() {
         column.id = "column-i-j";
         row.appendChild(column);
         Canvas.appendChild(row);
-
-  
       }
     }
 } 
