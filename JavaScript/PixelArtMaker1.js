@@ -26,10 +26,7 @@ function makeGrid() {
       for (let m = 1; m <= width; m ++) {
         var column = document.createElement('td');
         column.id = "column-i-j";
-        
-  
         row.appendChild(column);
-  
         Canvas.appendChild(row);
 
   
