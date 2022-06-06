@@ -17,18 +17,26 @@ picker.addEventListener('submit', function(event){
     makeGrid(height, width)
 }); 
 
-function makeGrid(height, width) {
-    Canvas.innerHTML = "";
-    for (var a= 0; a <= height; a++){
-        const row = Canvas.insertRow(a); 
-        for (var m = 0; m <= width; m ++){
-            const cell = row.insertCell(m)
-            cell.addEventListener('click', function(e){
-                cell.style.backgroundColor = color.value;
-            })
-        }
+function makeGrid() {
+    let height = inputHeight.value
+    let width = inputWidth.value
+  
+    for (let a = 1; a <= height; a++) {
+      var row = document.createElement('tr') ;
+      for (let m = 1; m <= width; m ++) {
+        var column = document.createElement('td');
+        column.id = "column-i-j";
+        
+  
+        row.appendChild(column);
+  
+        Canvas.appendChild(row);
+
+  
+      }
     }
+} 
 
-
-
-}
+Canvas.addEventListener("click", function (event) {
+    event.target.style.backgroundColor = colorPicker.value;
+  });
