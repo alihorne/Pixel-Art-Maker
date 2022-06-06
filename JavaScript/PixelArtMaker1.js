@@ -9,27 +9,35 @@ const width = document.getElementById('inputWidth').value;
 
 
 // Size is submitted, call makeGrid()
-picker.addEventListener('submit', function (event) {
-    Canvas.innerHTML = "";
-    event.preventDefault();
-    makeGrid(height, width)
+picker.addEventListener('submit', function(event) {
+	event.preventDefault();
+	makeGrid(height, width)
 });
 
-function makeGrid() {
-    let height = inputHeight.value
-    let width = inputWidth.value
+/**
+ * @desc create a grid of squares 
+ * @param int $width - number of squares representing the width of the grid
+ * @param int $height - number of squares representing the height of the grid
+ */
 
-    for (let a = 1; a <= height; a++) {
-        var row = document.createElement('tr');
-        for (let m = 1; m <= width; m++) {
-            var column = document.createElement('td');
-            column.id = "column-i-j";
-            row.appendChild(column);
-            Canvas.appendChild(row);
-        }
-    }
+function makeGrid() {
+	let height = inputHeight.value
+	let width = inputWidth.value
+	Canvas.innerHTML = '';
+
+	for (let a = 1; a <= height; a++) {
+		var row = document.createElement('tr');
+		for (let m = 1; m <= width; m++) {
+			var column = document.createElement('td');
+			column.id = "column-i-j";
+			row.appendChild(column);
+			Canvas.appendChild(row);
+		}
+	}
 }
 
-Canvas.addEventListener("click", function (event) {
-    event.target.style.backgroundColor = colorPicker.value;
+makeGrid(height.value, width.value)
+
+Canvas.addEventListener("click", function(event) {
+	event.target.style.backgroundColor = colorPicker.value;
 });
